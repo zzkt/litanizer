@@ -1,10 +1,11 @@
-;;; litanize.el --- generate "Latour Litanies"
+;;; litanize.el --- generate "Latour Litanies" -*- lexical-binding: t; -*-
 
 ;; Copyright 2019 FoAM oü
 ;;
 ;; AUTHOR: nik gaffney <nik@fo.am>
 ;; Created: 2019-01-19
 ;; Version: 0.1
+;; Package-Requires: ((enlive))
 ;; Keywords: Latour Litany, alien phenomenology, ontography, metaphorism, carpentry
 ;; URL: https://github.com/zzkt/litanize
 
