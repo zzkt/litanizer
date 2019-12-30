@@ -1,12 +1,12 @@
-;;; litanize.el --- generate "Latour Litanies" -*- lexical-binding: t; -*-
+;;; litanize.el --- Generate "Latour Litanies" -*- lexical-binding: t; -*-
 
 ;; Copyright 2019 FoAM oü
 ;;
 ;; AUTHOR: nik gaffney <nik@fo.am>
 ;; Created: 2019-01-19
 ;; Version: 0.1
-;; Package-Requires: ((enlive))
-;; Keywords: Latour Litany, alien phenomenology, ontography, metaphorism, carpentry
+;; Package-Requires: ((emacs "24.1") (enlive "0.0.1") (s "1.12.0"))
+;; Keywords: tools, Latour Litany, alien phenomenology, ontography, metaphorism, carpentry
 ;; URL: https://github.com/zzkt/litanize
 
 ;; This file is not part of GNU Emacs.
@@ -28,11 +28,11 @@
 
 ;;; Commentary:
 
-;; a simple version of Ian Bogost's method of generating "Latour Litanies"
+;; A simple version of Ian Bogost's method of generating "Latour Litanies"
 ;; from random wikipedia titles as an exercise in ontography, metaphorism,
 ;; and carpentry
 ;;
-;; currently uses random wikipedia titles as elements.  might be extended to
+;; Currently uses random wikipedia titles as elements. Might be extended to
 ;; use other lists in other futures.
 ;; 
 ;; 'M-x litanize'  will generate a litany in a new buffer
@@ -40,7 +40,6 @@
 ;; 'M-x insert-litany' will generate a litany at the point
 ;;
 ;; further -> http://bogost.com/writing/blog/latour_litanizer/
-
 
 ;;; Revision history:
 ;; 
@@ -54,11 +53,11 @@
   "Generating 'Latour Litanies' as an exercise in ontography, metaphorism, and carpentry"
   :group 'stochastism)
 
+(require 's)
 (require 'enlive)
-;; enlive can be installed via melpa or from https://github.com/zweifisch/enlive
 
-(defun random-wp-title ()
-  "Return a random wikipedia title"
+(defun litanize-wp-title ()
+  "Return a random wikipedia title."
   (s-chop-suffix
    " - Wikipedia"
    (nth 2 (enlive-query
@@ -67,30 +66,30 @@
 
 
 ;;;###autoload
-(defun latour-litany (length)
-  "Create an arbitary (or random) length litany in its own buffer"
+(defun litanize-litany (length)
+  "Create an arbitary (or random) LENGTH litany in its own buffer."
     (interactive "nHow long a litany? ")
   (with-current-buffer (get-buffer-create "*Latour litany*")
     (erase-buffer)
     (when (<= length 3) (setq length 3))
     (dotimes (i length)
-      (insert (random-wp-title))
+      (insert (litanize-wp-title))
       (cond ((<= i (- length 3)) (insert ", "))
 	    ((=  i (- length 2)) (insert " & "))
 	    ((=  i (- length 1)) (insert "."))))))
 
 ;;;###autoload
 (defun litanize ()
-  "Create a Latour Litany in its own buffer"
+  "Create a Latour Litany in its own buffer."
   (interactive)
-  (latour-litany 5))
+  (litanize-litany 5))
 
 ;;;###autoload
 (defun insert-litany ()
-  "Create a Latour Litany at the current point"
+  "Create a Latour Litany at the current point."
   (interactive)
     (dotimes (i 5)
-      (insert (random-wp-title))
+      (insert (litanize-wp-title))
       (cond ((<= i 2) (insert ", "))
 	    ((=  i 3) (insert " & "))
 	    ((=  i 4) (insert ".")))))
