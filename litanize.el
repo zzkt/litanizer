@@ -32,7 +32,7 @@
 ;; from random wikipedia titles as an exercise in ontography, metaphorism,
 ;; and carpentry
 ;;
-;; Currently uses random wikipedia titles as elements. Might be extended to
+;; Currently uses random wikipedia titles as elements.  Might be extended to
 ;; use other lists in other futures.
 ;; 
 ;; 'M-x litanize'  will generate a litany in a new buffer
@@ -85,7 +85,7 @@
   (litanize-litany 5))
 
 ;;;###autoload
-(defun insert-litany ()
+(defun litanize-at-point ()
   "Create a Latour Litany at the current point."
   (interactive)
     (dotimes (i 5)
@@ -93,6 +93,10 @@
       (cond ((<= i 2) (insert ", "))
 	    ((=  i 3) (insert " & "))
 	    ((=  i 4) (insert ".")))))
+
+;; provide an alias to 'insert-litany' avoid potential name collisions
+(when (not (fboundp 'insert-litany))
+  (fset 'insert-litany #'litanize-at-point))
 
 (provide 'litanize)
 
