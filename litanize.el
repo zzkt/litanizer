@@ -94,9 +94,6 @@
 	    ((=  i 3) (insert " & "))
 	    ((=  i 4) (insert ".")))))
 
-;; provide an alias to 'insert-litany' avoid potential name collisions
-(when (not (fboundp 'insert-litany))
-  (fset 'insert-litany #'litanize-at-point))
 
 (provide 'litanize)
 

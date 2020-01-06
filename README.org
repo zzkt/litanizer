@@ -11,9 +11,9 @@ This is a simple version of Ian Bogost's method of generating "Latour Litanies" 
 
 ** Litanizing
  
-~M-x litanize~  will generate a litany in a new buffer
+~M-x litanize~ will generate a litany in a new buffer
 
-~M-x insert-litany~ will generate a litany at the point
+~M-x litanize-at-point~ will generate a litany at the point
 
 ** Further 
 
