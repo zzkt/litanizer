@@ -1,6 +1,8 @@
 
 ** Latour Litanizer
 
+[[https://melpa.org/#/litanize][file:https://melpa.org/packages/litanize-badge.svg]]
+
 "When writing Alien Phenomenology I found myself wondering, what would happen if we put ontography, Latour Litany, and carpentry together? Here’s one simple take, a 'Latour Litanizer.' It uses Wikipedia’s random page API to generate lists of things [...] Like all Latour Litanies, this little gadget underscores the rich diversity of things. It also reminds us that human beings are among them, since a large number of Wikipedia articles describe living and historical persons."
 —Ian Bogost
 
