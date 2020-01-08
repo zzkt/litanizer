@@ -3,16 +3,25 @@
 
 [[https://melpa.org/#/litanize][file:https://melpa.org/packages/litanize-badge.svg]]
 
-"When writing Alien Phenomenology I found myself wondering, what would happen if we put ontography, Latour Litany, and carpentry together? Here’s one simple take, a 'Latour Litanizer.' It uses Wikipedia’s random page API to generate lists of things [...] Like all Latour Litanies, this little gadget underscores the rich diversity of things. It also reminds us that human beings are among them, since a large number of Wikipedia articles describe living and historical persons."
+“When writing Alien Phenomenology I found myself wondering, what would happen if we put ontography, Latour Litany, and carpentry together? Here’s one simple take, a 'Latour Litanizer.' It uses Wikipedia’s random page API to generate lists of things [...] Like all Latour Litanies, this little gadget underscores the rich diversity of things. It also reminds us that human beings are among them, since a large number of Wikipedia articles describe living and historical persons.”
 —Ian Bogost
 
-"[The] Latour Litanizer might be the first genuine piece of laboratory equipment ever created for philosophy."
+“[The] Latour Litanizer might be the first genuine piece of laboratory equipment ever created for philosophy.”
 —Levi R. Bryant
 
-This is a simple version of Ian Bogost's method of generating "Latour Litanies" in emacs as a further (or furthering) exercise in ontography, metaphorism, and carpentry.
+This is a simple version of Ian Bogost's method of generating “Latour Litanies” in emacs as a further (or furthering) exercise in ontography, metaphorism, and carpentry.
 
 ** Litanizing
- 
+
+The litanizer can be installed from [[https://melpa.org/][MELPA]] or manually via [[https://github.com/zzkt/litanizer][github]].
+
+#+BEGIN_SRC emacs-lisp
+  (use-package litanize
+   :config (defalias 'insert-litany #'litanize-at-point)) 
+#+END_SRC
+
+A litany can be generated in its own buffer, in the current buffer or programmatically as required.
+
 ~M-x litanize~ will generate a litany in a new buffer
 
 ~M-x litanize-at-point~ will generate a litany at the point

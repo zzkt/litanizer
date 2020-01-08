@@ -4,10 +4,10 @@
 ;;
 ;; AUTHOR: nik gaffney <nik@fo.am>
 ;; Created: 2019-01-19
-;; Version: 0.1
+;; Version: 0.2
 ;; Package-Requires: ((emacs "24.1") (enlive "0.0.1") (s "1.12.0"))
 ;; Keywords: tools, Latour Litany, alien phenomenology, ontography, metaphorism, carpentry
-;; URL: https://github.com/zzkt/litanize
+;; URL: https://github.com/zzkt/litanizer
 
 ;; This file is not part of GNU Emacs.
 
