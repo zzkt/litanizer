@@ -33,7 +33,7 @@
 ;;
 ;; Currently uses wikipedia titles as elements. Might be extended to use
 ;; other lists in other futures.
-;; 
+;;
 ;; 'M-x litanize' will generate a litany in a new buffer
 ;;
 ;; 'M-x litanize-at-point' will generate a litany at the point
@@ -44,24 +44,23 @@
 ;;; Code:
 
 (defgroup litanize nil
-  "Generating 'Latour Litanies' as an exercise in ontography, metaphorism, and carpentry"
+  "Generating 'Latour Litanies' as an exercise in ontography, metaphorism, and carpentry."
   :group 'stochastism)
 
 (require 's)
 (require 'enlive)
 
 (defun litanize-wp-title ()
-  "Return a random wikipedia title."
+  "Return a random Wikipedia title."
   (s-chop-suffix
    " - Wikipedia"
    (nth 2 (enlive-query
-	   (enlive-fetch "https://en.wikipedia.org/wiki/Special:Random")
-	   [title]))))
-
+           (enlive-fetch "https://en.wikipedia.org/wiki/Special:Random")
+           [title]))))
 
 ;;;###autoload
 (defun litanize-litany (length)
-  "Create an arbitary (or random) LENGTH litany in its own buffer."
+  "Create an arbitrary (or random) LENGTH litany in its own buffer."
     (interactive "nHow long a litany? ")
   (with-current-buffer (get-buffer-create "*Latour litany*")
     (erase-buffer)
@@ -69,8 +68,8 @@
     (dotimes (i length)
       (insert (litanize-wp-title))
       (cond ((<= i (- length 3)) (insert ", "))
-	    ((=  i (- length 2)) (insert " & "))
-	    ((=  i (- length 1)) (insert "."))))))
+            ((=  i (- length 2)) (insert " & "))
+            ((=  i (- length 1)) (insert "."))))))
 
 ;;;###autoload
 (defun litanize ()
@@ -85,8 +84,8 @@
     (dotimes (i 5)
       (insert (litanize-wp-title))
       (cond ((<= i 2) (insert ", "))
-	    ((=  i 3) (insert " & "))
-	    ((=  i 4) (insert ".")))))
+            ((=  i 3) (insert " & "))
+            ((=  i 4) (insert ".")))))
 
 
 (provide 'litanize)
