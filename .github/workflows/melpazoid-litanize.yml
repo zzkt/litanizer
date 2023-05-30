@@ -1,8 +1,8 @@
 # melpazoid <https://github.com/riscy/melpazoid> build checks.
 
-# for litanizer package
+# for litanize package
 
-name: melpazoid-litanizer
+name: melpazoid-litanize
 on: [push, pull_request]
 
 jobs:
@@ -24,7 +24,7 @@ jobs:
       env:
         LOCAL_REPO: ${{ github.workspace }}
         # RECIPE is your recipe as written for MELPA:
-        RECIPE: (litanizer :repo "zzkt/litanize" :fetcher github)
+        RECIPE: (litanize :repo "zzkt/litanizer" :fetcher github)
         # set this to false (or remove it) if the package isn't on MELPA:
         EXIST_OK: true
       run: echo $GITHUB_REF && make -C ~/melpazoid
